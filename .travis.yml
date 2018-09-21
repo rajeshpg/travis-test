@@ -16,7 +16,7 @@ jobs:
       deploy:
         env:
           - ENV=DEV
-        script: ./deploy.sh
+        script: echo $ENV
     - stage: deploy
       name: "deploy to qa"
       deploy:
@@ -24,4 +24,4 @@ jobs:
           condition: $TEST=true
         env:
           - ENV=QA
-        script: ./deploy.sh
+        script: echo $ENV
