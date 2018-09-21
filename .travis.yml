@@ -20,5 +20,4 @@ jobs:
       on:
         condition: $TEST=true
       name: "deploy to qa"
-      provider
       script: env ENV=QA ./deploy.sh
