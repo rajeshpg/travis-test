@@ -1,9 +1,5 @@
 sudo: true
 
-env:
-  global:
-  - ENV=dev
-
 stages:
   - Test
   - name: Deploy
@@ -23,7 +19,7 @@ jobs:
       name: "deploy to qa"
       deploy:
         on:
-          condition: $TEST=true        
+          condition: $TEST=true
         env:
           - ENV=QA
         script: ./deploy.sh
