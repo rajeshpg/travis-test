@@ -1,5 +1,7 @@
 sudo: true
 
+language: java
+
 stages:
   - Test
   - name: Deploy
