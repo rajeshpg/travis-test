@@ -14,14 +14,12 @@ jobs:
     - stage: deploy
       name: "deploy to dev"
       deploy:
-        env:
-          - ENV=DEV
+        env: ENV=DEV
         script: echo $ENV
     - stage: deploy
       name: "deploy to qa"
       deploy:
         on:
-          condition: $TEST=true
-        env:
-          - ENV=QA
+          condition: env(TEST)=true
+        env: ENV=QA
         script: echo $ENV
