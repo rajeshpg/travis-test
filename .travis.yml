@@ -13,11 +13,15 @@ jobs:
   include:
     - stage: Test
       script: echo "testing..."
-    - stage: Deploy
+    - stage: deploy
       name: "deploy to dev"
-      script: env ENV=DEV ./deploy.sh
-    - stage: Deploy
+      env:
+        - ENV=QA
+      script: ./deploy.sh
+    - stage: deploy
       on:
         condition: $TEST=true
       name: "deploy to qa"
-      script: env ENV=QA ./deploy.sh
+      env:
+        - ENV=QA
+      script: ./deploy.sh
