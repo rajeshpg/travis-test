@@ -1,0 +1,24 @@
+sudo: true
+
+env:
+  global:
+  - ENV=dev
+
+stages:
+  - Test
+  - name: Deploy
+    if: branch = master AND type != pull_request
+
+jobs:
+  include:
+    - stage: Test
+      script: ./gradlew clean test
+    - stage: Deploy
+      name: "deploy to dev"
+      script: env ENV=DEV ./deploy.sh
+    - stage: Deploy
+      on:
+        condition: $TEST=true
+      name: "deploy to a"
+      provider
+      script: env ENV=QA ./deploy.sh
