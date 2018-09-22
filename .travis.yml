@@ -17,6 +17,6 @@ jobs:
       script: echo $ENV
     - stage: Deploy
       name: "deploy to qa"
-      if: env(TEST)=True
+      if: env(deploy_env)=QA
       env: ENV=QA
       script: echo $ENV
