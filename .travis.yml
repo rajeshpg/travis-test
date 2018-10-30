@@ -13,9 +13,7 @@ jobs:
       script: echo "testing..."
     - stage: Deploy
       name: "deploy to dev"
-      if: env(deploy_to) IS blank
       script: echo "dev"
     - stage: Deploy
       name: "deploy to qa"
-      if: env(deploy_to)=qa
       script: echo $ENV
