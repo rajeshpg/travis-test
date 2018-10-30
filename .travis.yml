@@ -10,7 +10,11 @@ stages:
 jobs:
   include:
     - stage: Test
+      name: "unit test"
       script: echo "testing..."
+    - stage: Test
+      name: "integration test"
+      script: echo "testing..."      
     - stage: Deploy
       name: "deploy to dev"
       script: echo "dev"
